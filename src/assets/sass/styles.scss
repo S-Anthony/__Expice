@@ -1,0 +1,72 @@
+@import 'main/normalize';
+@import 'main/fonts';
+@import 'main/variables';
+@import 'main/mixins';
+
+* {
+    font-family: Poppins;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+* [class$="_container"] {
+    width: 1652px;
+    margin: 0 auto;
+}
+
+* [class$="__close"] {
+    @include focusOutline;
+}
+
+* [class$="_search"], * [class$="_email"] {
+    input {
+        transition: .2s all $my-transition;
+        &:focus {
+        outline: 2px solid $main-green;
+        }
+    }
+}
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+background-color: $bg-light;
+border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: rgba($color: $main-green, $alpha: .8);
+border-radius: 5px;
+}
+
+label {
+    @include focusOutline;
+}
+
+@import '../libs/animate';
+@import 'main/animations';
+@import 'blocks/title';
+@import 'blocks/buttons';
+@import 'blocks/header';
+@import 'blocks/preview';
+@import 'blocks/food';
+@import 'blocks/booking';
+@import 'blocks/services';
+@import 'blocks/explore';
+@import 'blocks/app';
+@import 'blocks/footer';
+@import 'blocks/mobile-menu';
+@import 'blocks/modals';
+@import 'main/media';
+
+
+
+
+
+

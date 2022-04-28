@@ -1,0 +1,31 @@
+.title {
+	font-weight: 500;
+	font-size: 48px;
+	color: #2E266F;
+	text-transform: capitalize;
+	position: relative;
+	margin-left: 55px;
+	display: inline-block;
+	&::before {
+		content: '';
+		width: 25px;
+		height: 140px;
+		background-color: $main-green;
+		position: absolute;
+		left: -50px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	&_booking {
+		font-size: 36px;
+		text-transform: lowercase;
+		&::before {
+			content: '';
+			width: 230px;
+			height: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+			top: -40px;
+		}
+	}
+}

@@ -1,0 +1,161 @@
+.booking {
+	min-height: 1090px;
+	padding: 265px 0 275px 265px;
+	background-color: $bg-dark;
+	background-repeat: no-repeat;
+	background-position: right;
+	position: relative;
+	overflow: hidden;
+	&__box {
+		width: 1230px;
+		height: 560px;
+		background-color: #fff;
+		padding: 145px 0 120px 140px;
+		text-align: center;
+		position: relative;
+		&::after {
+			content: url('../img/booking-bottom-bg.svg');
+			position: absolute;
+			left: 58px;
+			bottom: -75px;
+		}
+		&::before {
+			content: url('../img/booking-top-bg.svg');
+			position: absolute;
+			top: -70px;
+			right: -65px;
+		}
+
+	}
+	&__leaf-big {
+		position: absolute;
+		top: -282px;
+		left: 0;
+	}
+	&__leaf-small {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+	}
+	&__search {
+		width: 544px;
+		height: 90px;
+		box-shadow: 2px 2px 30px 2px #FFF5EC;
+		position: relative;
+		margin: 60px auto 0 auto;
+		input {
+			padding: 38px 182px 37px 40px ;
+			width: 100%;
+			height: 100%;
+			outline: none;
+			border: none;
+		}
+	}
+	&__params {
+		width: 370px;
+		display: flex;
+		justify-content: space-between;
+		margin: 60px auto 0 auto;
+		&-title {
+			font-weight: 400;
+			font-size: 16px;
+			display: inline-block;
+			text-transform: capitalize;
+			color: $font-blue;
+			position: relative;
+			cursor: pointer;
+			&::before {
+				content: url('../img/arrow-down-2.svg');
+				position: absolute;
+				right: -15px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		&-param {
+			margin-top: 10px;
+			font-weight: 400;
+			font-size: 16px;
+			color: $font-blue;
+			opacity: 0.6;
+		}
+		&-dropdown {
+			position: absolute;
+			left: 50%;
+			background: transparent;
+			width: 150px;
+			z-index: 10;
+			transition: .2s all linear;
+			transform: translate(-50%, 0%);
+			height: 120px;
+			overflow-y: auto;
+			opacity: 0;
+			&::-webkit-scrollbar {
+				width: 4px;
+			}
+			&::-webkit-scrollbar-track {
+				background: $bg-dark;
+				border-radius: 10px;
+
+			}
+			&::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				background: $main-green;
+			}
+			ul {
+				width: 100%;
+				overflow: hidden;
+				li {
+					transform: translateY(-500%);
+					opacity: 1;
+					height: 30px;
+					box-shadow: 2px 2px 30px 2px #f3e2d3;
+					background-color: #fff;
+					font-size: 16px;
+					width: 100%;
+					display: block;
+					transition: .2s all linear;
+					list-style-type: none;
+					font-weight: 400;
+					color: $font-blue;
+					line-height: 30px;
+					cursor: pointer;
+					&:active {
+						color: $main-green;
+					}
+				}
+			}
+		}
+		&-guests {
+			flex-basis: 22%;
+		}
+		&-date, &-time, &-guests {
+			@include focusOutline;
+			transition: .2s all $my-transition;
+			.active {
+				transform: translate(-50%, 0%);
+				opacity: 1;
+				ul {
+					li {
+						transform: translateY(0%);
+					}
+				}
+			}
+			position: relative;
+			cursor: pointer;
+			&:active {
+				z-index: 20;
+				.booking__params-title {
+					color: $main-green;
+					&::before {
+						transform: translateY(-35%);
+					}
+				}
+			}
+			&:hover {
+				z-index: 20;
+			}
+		}
+	}
+}

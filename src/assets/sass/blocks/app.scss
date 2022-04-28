@@ -1,0 +1,78 @@
+.app {
+	background-color: $bg-dark;
+	padding: 289px 0 418px 0;
+	min-height: 1090px;
+	overflow: hidden;
+	&__container {
+		position: relative;
+	}
+	&__text {
+		font-weight: 400;
+		font-size: 14px;
+		color: $font-grey;
+		margin: 30px 0 0 65px;
+		max-width: 449px;
+		text-align: start;
+		line-height: 24px;
+	}
+	&__store-link {
+		@include focusOutline;
+		&s {
+			display: flex;
+			width: 376px;
+			margin: 30px 0 0 65px;
+			justify-content: space-between;
+		}
+		&:active {
+			transform: translateY(2px);
+		}
+		&:first-child {
+			text-transform: uppercase;
+		}
+		&:last-child {
+			text-transform: capitalize;
+			padding: 0 7px 0 20px;
+		}
+		cursor: pointer;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		padding: 0 20px;
+		background-color: $black;
+		border-radius: 10px; 
+		justify-content: space-between;
+		width: 178px;
+		height: 48px;
+		&-icon {
+			max-height: 34px;
+			overflow: hidden;
+		}
+		&-text {
+			max-width: 108px;
+			color: #fff;
+			font-weight: 400;
+			font-size: 12px;
+			span {
+				display: block;
+				font-weight: 500;
+				font-size: 14px;
+				text-transform: capitalize;
+			}
+		}
+	}
+	&__img {
+		position: absolute;
+		right: 708px;
+		top: -253px;
+		width: 450px;
+		height: 950px;
+		object-fit: contain;
+		&::before {
+			content: url('../img/download-bg.svg');
+			position: absolute;
+			z-index: -1;
+			top: 10%;
+			left: 32%;
+		}
+	}
+}

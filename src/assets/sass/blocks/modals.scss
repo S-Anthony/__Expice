@@ -1,0 +1,558 @@
+.modal {
+	&-sub, &-book, &-order, &-fail, &-restaurants, &-restaurant-booking {
+		display: none;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		z-index: 4;
+		background-color: rgba($color: $bg-light, $alpha: .5);
+		top: 0;
+		left: 0;
+		align-items: center;
+		&__content {
+			box-shadow: $shadow-color 2px 2px 10px 2px;
+			width: 50%;
+			height: fit-content;
+			margin: auto;
+			padding: 20px 10px;
+			background-color: $bg-dark;
+			text-align: center;
+			border: 1px solid $bg-dark;
+			border-radius: 10px;
+			position: relative;
+		}
+	}
+	&-sub, &-book, &-order, &-fail, &-restaurants, &-cart, &-order {
+		&__close {
+			width: 80px;
+			height: 80px;
+			overflow: hidden;
+			position: absolute;
+			top: -66px;
+			right: 50%;
+			cursor: pointer;
+			transform: translateX(50%);
+			transition: .2s transform cubic-bezier(1,.49,.15,.89);
+			span {
+				transform-origin: center;
+				position: absolute;
+				width: 40px;
+				height: 3px;
+				background-color: $hover-red;
+				border-radius: 4px;
+				top: 50%;
+				left: 50%;
+				transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+				&:nth-child(2) {
+					right: 50%;
+					transform: translateY(-50%) translateX(-50%) rotate(45deg);
+				}
+			}
+			&:active {
+				transform: translate(50%, 5%);
+			}
+		}
+	}
+	&-sub, &-order, &-fail, &-restaurants {
+		&__img {
+			width: 25%;
+			margin: 0 auto;
+			img {
+				width: 100%;
+			}
+		}
+		&__text {
+			margin-top: 50px;
+			font-size: 30px;
+			color: #2e266f;
+			text-transform: capitalize;
+		}
+	}
+	&-sub {
+		&__text {
+			margin-top: 0;
+		}
+	}
+	&-order {
+		&__text {
+			font-size: 30px;
+		}
+	}
+	&-fail {
+		&__text {
+			color: $hover-red;
+			span {
+				display: block;
+				color: $font-grey;
+				font-size: 15px;
+				margin-top: 10px;
+			}		
+		}
+	}
+	&-restaurants {
+		&__fail {
+			width: 100%;
+			text-align: center;
+			line-height: 62px;
+			color: $hover-red;
+		}
+		&__content {
+			width: 85%;
+			height: fit-content;
+			padding: 2%;
+			display: flex;
+			justify-content: space-between;
+			margin: 0 auto;
+			background-color: $bg-dark;
+			border: 1px solid $bg-dark;
+			border-radius: 20px;
+			flex-direction: column;
+		}
+		&__loc, &__perfect, &__params {
+			display: block;
+			width: 100%;
+			max-height: 150px;
+			background-color: $bg-light;
+			border-radius: 20px;
+			position: relative;
+		}
+		&__perfect {
+			height: 75px;
+			padding: 5px;
+			overflow: hidden;
+		}
+		&__wrapper {
+			padding: 5px;
+			max-height: 145px;
+			min-height: 75px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			overscroll-behavior-y: contain;
+			&::-webkit-scrollbar {
+				width: 6px;
+			}
+			&::-webkit-scrollbar-track {
+				background: $bg-light;
+				border-radius: 10px;
+
+			}
+			&::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				background: $main-green;
+			}
+		}
+		&__item {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+			border-bottom: 1px solid $font-grey;
+			padding: 10px 0 10px 40px;
+			align-items: center;
+			&:last-of-type {
+				border: none;
+				padding-bottom: 0;
+				margin-bottom: 10px;
+			}
+			
+		}
+		&__location, &__date, &__time, &__guests, &__number {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			div {
+				font-size: 20px;
+				color: $font-blue;
+				overflow: hidden;
+				&:first-child {
+					color: $font-grey;
+					font-size: 18px;
+				}
+			}
+			&-dec, &-inc {
+				@include focusOutline;
+				cursor: pointer;
+				width: 20px;
+				height: 20px;
+				top: 50%;
+				text-align: center;
+				font-size: 25px;
+				line-height: 20px;
+				color: #fff;
+				border-radius: 20px 0 0 20px;
+				transition: .2s all linear;
+				position: absolute;
+				&:active {
+					transform: translateY(8%);
+				}
+			}
+			&-dec {
+				right: 60px;
+				background-color: $hover-red;
+			}
+			&-inc {
+				left: 60px;
+				background-color: $user-green;
+				border-radius: 0 20px 20px 0;
+			}
+			.disabled {
+				display: none;
+				opacity: 0;
+				cursor: default;
+			}
+		}
+		&__time {
+			flex-basis: 9%;
+			&-inc {
+				left: 100px;
+			}
+			&-dec {
+				right: 100px;
+			}
+		}
+		&__number {
+			width: 20px;
+			position: absolute;
+			left: 0;
+		}
+		&__title {
+			color: $font-blue;
+			font-size: 18px;
+			font-weight: 700;
+			text-transform: capitalize;
+			line-height: 68px;
+
+		}
+		&__book {
+			padding: 1%;
+			cursor: pointer;
+			width: 150px;
+			background-color: $main-green;
+			font-weight: 700;
+			font-size: 24px;
+			border-radius: 20px;
+			color: #fff;
+			outline: none;
+			border: none;
+			transition: .1s all linear;
+			&:active {
+				transform: translateY(4px);
+			}
+		}
+	}
+	&-restaurant-booking {
+		&__restaurant {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		&__buttons {
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
+			margin-top: 60px;
+		}
+		&__location, &__date, &__time, &__guests, &__number, &__params-title {
+			display: flex;
+			flex-direction: column;
+			padding: 15px;
+			div {
+				font-size: 20px;
+				color: $font-blue;
+				overflow: hidden;
+				&:first-child {
+					color: $font-grey;
+					font-size: 18px;
+				}
+			}
+		}
+		&__params-title {
+			font-size: 18px;
+			padding: 0;
+			border-radius: 20px;
+			background-color: #fff5ec;
+			height: 60px;
+			line-height: 60px;
+			font-weight: 700;
+			color: #2e266f;
+			width: 100%;
+			text-align: center;
+		}
+		&__form {
+			width: 100%;
+			margin-top: 20px;
+			&-text, label {
+				font-size: 18px;
+				border-radius: 20px;
+				background-color: $bg-light;
+				height: 60px;
+				line-height: 60px;
+				font-weight: 700;
+				color: $font-blue;
+				width: 100%;
+				text-align: center;
+			}
+			label {
+				display: block;
+				margin-top: 6%;
+				border-radius: 100px;
+				cursor: pointer;
+				&:first-of-type {
+					margin-top: 2%;
+				}
+			}
+			input {
+				margin-top: 1%;
+				display: block;
+				width: 100%;
+				border: none;
+				outline: none;
+				background: #FFFFFF;
+				box-shadow: 2px 2px 30px 2px $shadow-color;
+				border-radius: 100px;
+				padding: 37px 60px ;
+				width: 100%;
+			}
+		}
+	}
+	&-cart {
+		display: none;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		z-index: 4;
+		background-color: rgba($color: $bg-light, $alpha: .5);
+		top: 0;
+		left: 0;
+		align-items: center;
+		&__content {
+			width: 95%;
+			height: 90%;
+			padding: 1%;
+			display: flex;
+			justify-content: space-between;
+			margin: 0 auto;
+			background-color: $bg-dark;
+			border: 1px solid $bg-dark;
+			border-radius: 20px;
+			overflow: hidden;
+		}
+		&__items {
+			width: 62%;
+			position: relative;
+			&-wrapper {
+				overflow-y: auto;
+				height: 88%;
+				margin-top: 2%;
+				overscroll-behavior-y: contain;
+				&::-webkit-scrollbar {
+					width: 6px;
+				}
+				&::-webkit-scrollbar-track {
+					background: $bg-light;
+					border-radius: 10px;
+	
+				}
+				&::-webkit-scrollbar-thumb {
+					border-radius: 10px;
+					background: $main-green;
+				}
+			}
+			&-header, &-item {
+				display: flex;
+				list-style: none;
+				align-items: center;
+				padding-left: 1%;
+				color: $font-blue;
+				font-size: 18px;
+				border-radius: 20px;
+				background-color: $bg-light;
+			}
+			&-header {
+				height: 60px;
+				font-weight: 700;
+			}
+			&-name, &-quantity, &-price, &-delete {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			&-item {
+				padding: 1%;
+				margin-top: 2%;
+				font-weight: 500;
+				&:first-of-type {
+					margin-top: 0;
+				}
+				.modal-cart__items {
+					&-name {
+						justify-content: space-around;
+						&-img {
+							height: 150px;
+							width: 150px;
+							border-radius: 100%;
+							overflow: hidden;
+							img {
+								object-fit: cover;
+								height: 100%;
+								width: 100%;
+							}
+						}
+						&-text {
+							text-transform: capitalize;
+							text-align: center;
+						}
+					}
+					&-quantity {
+						padding: 1%;
+						.disabled {
+							opacity: 0;
+							cursor: default;
+							pointer-events: none;
+						}
+						&-dec, &-inc {
+							@include focusOutline;
+							cursor: pointer;
+							width: 40px;
+							height: 30px;
+							text-align: center;
+							font-size: 25px;
+							line-height: 30px;
+							color: #fff;
+							border-radius: 20px 0 0 20px;
+							transition: .2s all linear;
+							&:active {
+								transform: translateY(8%);
+							}
+						}
+						&-dec {
+							background-color: $hover-red;
+						}
+						&-inc {
+							background-color: $user-green;
+							border-radius: 0 20px 20px 0;
+						}
+						&-value {
+							width: 20px;
+							margin: 0 20px;
+							font-size: 20px;
+						}
+					}
+					&-price {
+						color: $user-green;
+						font-size: 22px;
+					}
+					&-delete {
+						font-size: 40px;
+						cursor: pointer;
+						color: $hover-red;
+						transition: .1s all linear;
+						@include focusOutline;
+						&:active {
+							transform: translateY(8%);
+						}
+					}
+				}
+				&-empty {
+					width: 100%;
+					top: 25%;
+					text-align: center;
+					font-size: 30px;
+					text-transform: capitalize;
+					color: $font-blue;
+					position: absolute;
+					list-style: none;
+				}
+			}
+			&-name {
+				width: 40%;
+			}
+			&-quantity {
+				width: 25%;
+			}
+			&-price {
+				width: 20%;
+			}
+			&-delete {
+				width: 15%;
+			}
+		}
+		&__form {
+			width: 35%;
+			overflow-y: auto;
+			overscroll-behavior-y: contain;
+			&.disabled {
+				*:not(div:first-child) {
+					display: none;
+				}
+			}
+			&::-webkit-scrollbar {
+				width: 6px;
+			}
+			&::-webkit-scrollbar-track {
+				background: $bg-light;
+				border-radius: 10px;
+
+			}
+			&::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				background: $main-green;
+			}
+			&-text, label {
+				font-size: 18px;
+				border-radius: 20px;
+				background-color: $bg-light;
+				height: 60px;
+				line-height: 60px;
+				font-weight: 700;
+				color: $font-blue;
+				width: 100%;
+				text-align: center;
+			}
+			label {
+				display: block;
+				margin-top: 6%;
+				border-radius: 100px;
+				cursor: pointer;
+				&:first-of-type {
+					margin-top: 2%;
+				}
+			}
+			input {
+				margin-top: 1%;
+				display: block;
+				width: 100%;
+				border: none;
+				outline: none;
+				background: #FFFFFF;
+				box-shadow: 2px 2px 30px 2px $shadow-color;
+				border-radius: 100px;
+				padding: 37px 60px ;
+				width: 100%;
+			}
+		}
+		&__total-price {
+			margin-top: 10%;
+			font-size: 18px;
+			border-radius: 20px;
+			background-color: $bg-light;
+			height: 60px;
+			line-height: 60px;
+			font-weight: 700;
+			color: $font-blue;
+			width: 100%;
+			text-align: center;
+			span {
+				color: $user-green;
+				font-size: 30px;
+			}
+		}
+		&__close {
+			top: -15px;
+		}
+	}
+	&_opened {
+		display: flex;	
+	}
+	
+}

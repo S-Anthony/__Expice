@@ -1,0 +1,175 @@
+.food {
+	min-height: 1158px;
+	padding-top: 50px;
+	padding-bottom: 200px;
+	background-color: $bg-light;
+	overflow: hidden;
+	&__text {
+		margin-left: 149px;
+		max-width: 610px;
+		color: $font-grey;
+		font-weight: 400;
+		font-size: 14px;
+		display: inline-block;
+		text-transform: capitalize;
+	}
+	&__items {
+		margin-top: 118px;
+		display: flex;
+		position: relative;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 1320px;
+		transition: .2s transform $my-transition;
+		&_opened {
+			margin-left: auto;
+			margin-right: auto;
+			.food {
+				&__item {
+					&:last-child {
+						&::before {
+							content: url('../img/food-dots-2.svg');
+							position: absolute;
+							bottom: -70px;
+							right: -65px;
+						}               
+					}
+					&:nth-child(2) {
+						&::before {
+							display: none;
+						}               
+					}
+				}
+			}
+		}
+	}
+	&__item {
+		width: 639px;
+		height: 639px;
+		border-radius: 20px;
+		background-repeat: no-repeat;
+		position: relative;
+		margin-top: 40px;
+		&:first-child:not(.food__item_modal) {
+			&::before {
+				content: url('../img/food-dots-1.svg');
+				position: absolute;
+				top: -70px;
+			}               
+		}
+		&:nth-child(2) {
+			&::before {
+				content: url('../img/food-dots-2.svg');
+				position: absolute;
+				bottom: -70px;
+				right: -65px;
+			}               
+		}
+	}
+	&__img {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		border-radius: 20px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__info {
+		width: 100%;
+		height: 253px;
+		background-color: rgba($color: $main-green, $alpha: .7);
+		border-radius: 0px 0px 20px 20px; 
+		position: absolute;
+		bottom: 0;
+		color: #fff;
+		padding: 40px 0 37px 60px;
+		text-transform: capitalize;
+		&-title {
+			font-weight: 700;
+			font-size: 24px;
+		}
+		&-text {
+			max-width: 76%;
+			max-height: 43px;
+			margin-top: 20px;
+			line-height: 24px;
+		}
+		&-location {
+			margin-left: 30px;
+			font-size: 14px;
+			font-weight: 400;
+			position: relative;
+			&::before {
+				content: url('../img/location-icon-2.svg');	
+				position: absolute;
+				left: -30px;
+				top: -5px;
+				display: inline-block;
+			}
+		}
+		&-btn {
+			height: 100%;
+			width: 36%;
+			background: #FFFFFF;
+			border-radius: 100px 0px 0px 100px;
+			color: $main-green;
+			font-weight: 400;
+			font-size: 16px;	
+			cursor: pointer;
+			text-align: center;
+			line-height: 58px;
+			transition: .2s all $my-transition;
+			&:active {
+				transform: translateY(5%);
+			}
+			&-wrapper {
+				height: 58px;
+				display: flex;
+				justify-content: space-between;
+				margin-top: 32px;
+			}
+		}
+
+	}
+	&__more {
+		width: 40px;
+		height: 40px;
+		background-color: $main-green;
+		position: absolute;
+		right: -30%;
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		transition: .2s transform $my-transition;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 38px;
+			height: 3px;
+			width: 60px;
+			background-color: $main-green;
+		}
+		&::after {
+			content: 'see more';
+			text-transform: capitalize;
+			min-width: 67px;
+			color: $main-green;
+			font-weight: 400;
+			font-size: 14px;
+			position: absolute;
+			top: 60px;
+		}
+		&_opened {
+			transform: translateY(-50%) translateX(10000%);
+		}
+	}
+}

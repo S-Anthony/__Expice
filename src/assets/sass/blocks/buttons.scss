@@ -1,0 +1,135 @@
+.button {
+	width: 128px;
+	height: 62px;
+	background: #35CD8C;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	border: none;
+	font-weight: 600;
+	font-size: 30px;
+	cursor: pointer;
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: .1s all $my-transition;
+	text-align: center;
+	@include focusOutline;
+	&:active {
+		transform: translateY(-45%);
+	}
+	&_main {
+		width: 200px;
+		height: 72px;
+		border-radius: 60px 0px 0px 0px;
+		right: 9px;
+	}
+	&_round {
+		width: 56px;
+		height: 56px;
+		border-radius: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:active {
+			transform: translateY(-50%) translateX(5%);
+		}
+	}
+	&__loading {
+		animation: rotate 2s linear infinite;
+		display: none;
+		margin: 0 auto;
+		max-height: 100%;
+	}
+	&__fail {
+		display: none;
+		margin: 0 auto;
+		max-height: 100%;
+	}
+	&_book, &_back {
+		top: unset;
+		bottom: 80px;
+		right: 0;
+		transform: translateX(-50%);
+		width: 200px;
+		font-size: 24px;
+		border-radius: 50px;
+		&:active {
+			transform: translateX(-50%) translateY(10%);
+		}
+	}
+	&-book {
+		.button-on-load {
+			&::before {
+				content: 'loading';
+				color: $hover-red;
+				position: absolute;
+				bottom: -10px;
+			}
+		}
+		.button-on-fail {
+			&::before {
+				content: 'error!';
+				color: $hover-red;
+				position: absolute;
+				bottom: -10px;
+			}
+		}
+	}
+	&_cart {
+		position: static;
+		transform: none;
+		margin-top: 20px;
+		&:active {
+			transform: translateY(10%);
+		}
+	}
+	&_back {
+		background-color: $hover-red;
+		line-height: 62px;
+	}
+	&_rest {
+		position: unset;
+		transform: none;
+		&:active {
+			transform: translateY(10%);
+		}
+	}
+	&_cart-book {
+		border-radius: 20px;
+		position: static;
+		margin-top: 10%;
+		transform: none;
+		line-height: 40px;
+		font-size: calc(17px + (22 - 17) * ( (100vw - 320px) / (1920 - 320)));
+		width: fit-content;
+		height: fit-content;
+		padding: calc(5px + (20 - 5) * ( (100vw - 320px) / (1920 - 320) )) 10px;
+		&:active {
+			transform: translateY(4px);
+		}
+	}
+	&_on-load {
+		.button__loading {
+			display: block;
+		}
+		.button__neutral {
+			display: none;
+		}
+		.button__fail {
+			display: none;
+		}
+	}
+	&_on-fail {
+		.button__loading {
+			display: none;
+		}
+		.button__neutral {
+			display: none;
+		}
+		.button__fail {
+			display: block;
+		}
+	}
+}

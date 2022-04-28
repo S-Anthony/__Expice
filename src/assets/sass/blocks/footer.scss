@@ -1,0 +1,107 @@
+.footer {
+	padding: 272px 0;
+	background-color: $bg-light;
+	background-image: url('../img/footer-bg.png');
+	background-repeat: no-repeat;
+	background-position: left 0% bottom -40%;
+	text-align: center;
+	position: relative;
+	&__title {
+		font-weight: 400;
+		font-size: 36px;
+		color: $font-blue;
+		text-transform: capitalize;
+	}
+	&__text {
+		font-weight: 400;
+		font-size: 14px;
+		color: $font-grey;
+		max-width: 533px;
+		margin: 30px auto 0 auto;
+		text-transform: capitalize;
+	}
+	&__email {
+		margin: 60px auto 0 auto;
+		width: 544px;
+		height: 90px;
+		position: relative;
+		input {
+			width: 100%;
+			height: 100%;
+			border: none;
+			outline: none;
+			background: #FFFFFF;
+			box-shadow: 2px 2px 30px 2px #FFF5EC;
+			border-radius: 100px;
+			padding: 37px 136px 37px 60px ;
+		}
+		&-try-again {
+			color: $hover-red;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 0;
+			z-index: -1;
+			transition: all .2s linear;
+			background-color: #fff;
+		}
+		&.fail {
+			input {
+				&::placeholder {
+					opacity: 0;
+				}
+				outline: 2px solid $hover-red;
+			}
+			pointer-events: none;
+			.footer__email-try-again {
+				opacity: 1;
+				z-index: 1;
+			}
+		}
+	}
+	&__links {
+		margin: 60px auto 0 auto;
+		width: 434px;
+		display: flex;
+		justify-content: space-between;
+		a {
+			@include focusOutline;
+			text-decoration: none;
+			color: $font-grey;
+		}
+	}
+	&__socials-and-copyright {
+		@include focusOutline;
+		width: 431px;
+		position: absolute;
+		bottom: 6%;
+		right: 8%;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__socials {
+		width: 150px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			transition: .1s all $my-transition;
+			&:active {
+				transform: translateY(3px);
+			}
+		}
+		&-mobile {
+			display: none;
+		}
+	}
+	&__copyright {
+		width: 150px;
+		position: relative;
+		&::before {
+			content: '\00A9';
+			position: absolute;
+			left: -12%;
+		}
+	}
+}

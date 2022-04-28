@@ -1,0 +1,25 @@
+@keyframes color-change {
+	0% {
+		color: $main-green;
+	}
+	30% {
+		color: $main-green;
+	}
+	50% {
+		color: $user-green;
+	}
+	80% {
+		color: $user-green;
+	}
+	100% {
+		color: $main-green;
+	}
+}
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

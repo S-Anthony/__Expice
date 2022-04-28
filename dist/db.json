@@ -1,0 +1,82 @@
+{
+    "food": [
+        {
+            "name": "cheeseburger",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "New Market",
+            "src": "./img/server-food/cheeseburger.jpg",
+            "id": "1",
+            "price": "12"
+        },
+        {
+            "name": "donut",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "New Market",
+            "src": "./img/server-food/donut.jpg",
+            "id": "2",
+            "price": "6"
+        },
+        {
+            "name": "fish-tacos",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "Saheb Bazar",
+            "src": "./img/server-food/fish-tacos.jpg",
+            "id": "3",
+            "price": "11"
+        },
+        {
+            "name": "fried-catfish",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "Saheb Bazar",
+            "src": "./img/server-food/fried-catfish.webp",
+            "id": "4",
+            "price": "12"
+        },
+        {
+            "name": "fries",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "Saheb Bazar",
+            "src": "./img/server-food/fries.jpg",
+            "id": "5",
+            "price": "8"
+        },
+        {
+            "name": "lime-pie",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "New Market",
+            "src": "./img/server-food/lime-pie.jpg",
+            "id": "6",
+            "price": "14"
+        },
+        {
+            "name": "ravioli",
+            "descriptions": "We Are All About We Are All About To The Fullest And All Content Dining Out Or In!Dining Out Or In!",
+            "location": "New Market",
+            "src": "./img/server-food/ravioli.jpg",
+            "id": "7",
+            "price": "9"
+        }
+    ],
+    "restaurants": [
+        {
+            "location":"New Market",
+            "dates": {
+                "24-09-2022": "8-18",
+                "25-09-2022": "8-18",
+                "26-09-2022": "10-18",
+                "27-09-2022": "10-16"
+            },
+            "guests": "1-4"
+        },
+        {
+            "location":"Saheb Bazar",
+            "dates": {
+                "25-09-2022": "8-18",
+                "26-09-2022": "8-18",
+                "27-09-2022": "10-18",
+                "28-09-2022": "10-16"
+            },
+            "guests": "2-5"
+        }
+    ]
+}

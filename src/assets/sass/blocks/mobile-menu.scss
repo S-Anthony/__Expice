@@ -1,0 +1,70 @@
+.mobile-menu {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 4;
+	background-color: rgba($color: $bg-light, $alpha: .5);
+	&__content {
+		width: 40%;
+		height: 100%;
+		background-color: $bg-dark;
+		text-align: center;
+		padding: 40px 0;
+		ul {
+			li {
+				a {
+					text-transform: capitalize;
+					@include focusOutline;
+					font-weight: 500;
+					font-size: 36px;
+					text-decoration: none;
+					color: $font-blue;
+					display: block;
+					width: 100%;
+					margin: 30px auto;
+				}
+				display: block;
+				list-style: none;
+				width: 100%;
+			}
+		}
+		.header__user {
+			width: fit-content;
+			margin: 0 auto;
+			margin-top: 150px;
+			@include focusOutline;
+			&-dropdown {
+				color: $black;
+				&::after {
+					content: url('../img/arrow-down-1-dark.svg');
+				}
+			}
+		}
+	}
+	&__close {
+		width: 80px;
+		height: 80px;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		right: 0;	
+		cursor: pointer;
+		transition: .2s transform $my-transition;
+		span {
+			transform-origin: center;
+			position: absolute;
+			width: 40px;
+			height: 3px;
+			background-color: $hover-red;
+			border-radius: 4px;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+			&:nth-child(2) {
+				right: 50%;
+				transform: translateY(-50%) translateX(-50%) rotate(45deg);
+			}
+		}
+	}
+}
