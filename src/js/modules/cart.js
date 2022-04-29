@@ -135,7 +135,11 @@ const cart = (foodItems) => {
 			cartItem.innerHTML = `
 			<div class="modal-cart__items-name">
 				<div class="modal-cart__items-name-img">
-					<img src="${src}" alt="preview">
+					<picture>
+						<source type="image/webp" srcset="${src.replace(/[^.]+$/, 'webp')}">
+						<source type="image/jpeg" srcset="${src}">
+						<img src="${src}" alt="preview">
+					</picture>
 				</div>
 				<div class="modal-cart__items-name-text">
 					${name}

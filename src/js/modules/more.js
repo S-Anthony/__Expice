@@ -11,7 +11,11 @@ const more = (receivedFood) => {
 			elem.setAttribute("id", `food-item-${obj.id}`);
 			elem.innerHTML = `
 				<div class="food__img">
-					<img src="${obj.src}" alt="food">
+					<picture>
+						<source type="image/webp" srcset="${obj.src.replace(/[^.]+$/, 'webp')}">
+						<source type="image/jpeg" srcset="${obj.src}">
+						<img src="${obj.src}" alt="food">
+					</picture>
 				</div>
 				<div class="food__info">
 					<div class="food__info-title">${obj.name}</div>
