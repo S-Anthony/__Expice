@@ -29,6 +29,9 @@
 		}
 	}
 	.header {
+		&__logo {
+			animation: color-change 10s ease infinite;
+		}
 		&__menu {
 			li {
 				position: relative;
