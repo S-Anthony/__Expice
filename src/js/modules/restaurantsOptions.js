@@ -107,7 +107,11 @@ const restaurantsOptions = (receivedRestaurants) => {
 	}
 
 	function changeOption(container, value) {
-		container.textContent = value;
+		// fix bug whitch allowed in short perion of time click 'ul' insted of 'li', 
+		// and choose all 'li' elements as value argument
+		if (!value.match(/li/)) {
+			container.textContent = value;
+		}
 	}
  
 	// Change chosen option when click on another option in list

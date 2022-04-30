@@ -95,6 +95,8 @@
 			height: 120px;
 			overflow-y: auto;
 			opacity: 0;
+			cursor: default;
+			pointer-events: none;
 			&::-webkit-scrollbar {
 				width: 4px;
 			}
@@ -138,6 +140,8 @@
 			@include focusOutline;
 			transition: .2s all $my-transition;
 			.active {
+				cursor: pointer;
+				pointer-events: all;
 				transform: translate(-50%, 0%);
 				opacity: 1;
 				ul {
