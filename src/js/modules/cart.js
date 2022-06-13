@@ -4,11 +4,11 @@ const cart = (foodItems) => {
 		  clearCartBtns = document.querySelectorAll('.header__user-clear-cart'),
 		  cartForm = document.querySelector('.modal-cart__form'),
 		  cartTriggers = document.querySelectorAll('[data-open-cart]'),
-		  emptyCart = document.createElement('li');
+		  emptyCart = document.createElement('li'),
+		  foodItemsContainer = document.querySelector('.food__items');
 	emptyCart.textContent = 'your cart is empty, for now :)';
 	emptyCart.classList.add('modal-cart__items-item-empty');
-	let cartItems = {},
-		buttons = document.querySelectorAll('.food__info-btn');
+	let cartItems = {};
 	removeItems();
 
 	
@@ -62,12 +62,12 @@ const cart = (foodItems) => {
 		}));
 	}
 
-	function booking () {
+	function booking (btn) {
 		const itemParams = {};
 
-		const id = this.closest('.food__item').getAttribute('id');
-		itemParams.name = getSibling.call(this, '.food__info-title', '.food__item').textContent;
-		itemParams.src = getSibling.call(this, '.food__img img', '.food__item').getAttribute('src');
+		const id = btn.closest('.food__item').getAttribute('id');
+		itemParams.name = getSibling.call(btn, '.food__info-title', '.food__item').textContent;
+		itemParams.src = getSibling.call(btn, '.food__img img', '.food__item').getAttribute('src');
 		itemParams.quantity = 1;
 
 		foodItems.forEach(item => {
@@ -177,8 +177,10 @@ const cart = (foodItems) => {
 		});
 	});
 
-	buttons.forEach(button => {
-		button.addEventListener('click', booking)
+	foodItemsContainer.addEventListener('click', e => {
+		if (e.target.classList.contains('food__info-btn') || e.target.closest('.food__info-btn')) {
+			booking(e.target);
+		}
 	});
 
 	document.addEventListener('ok-cart', () => {
