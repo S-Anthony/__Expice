@@ -52,11 +52,12 @@ const mask = (selector) => {
     let inputs = document.querySelectorAll(selector);
 
     inputs.forEach(input => {
-        input.setAttribute('pattern', '.{20}')
+        input.setAttribute('pattern', '.{20}');
         input.addEventListener('input', createMask);
         input.addEventListener('focus', createMask);
         input.addEventListener('blur', createMask);
         input.addEventListener('click', protectCode);
+        input.addEventListener('keypress', protectCode);
     });
 };
 
