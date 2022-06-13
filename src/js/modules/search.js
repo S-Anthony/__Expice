@@ -7,10 +7,10 @@ const search = (receivedFood, receivedRestaurants) => {
 		let matchedElem,
 			type;
 		if (input.value.length > 1) {
-			const inputValue = input.value.match(/\w+/g).join(' ').toLowerCase();
+			const inputValue = input.value.match(/[a-z]/gi).join('').toLowerCase();
 			// compare food items from markup
 			renderedFood.forEach(food => {
-				const foodName = food.querySelector('.food__info-title').textContent.match(/\w+/g).join(' ').toLowerCase();
+				const foodName = food.querySelector('.food__info-title').textContent.match(/[a-z]/gi).join('').toLowerCase();
 				if (foodName === inputValue) {
 					matchedElem = `#${food.getAttribute('id')}`;
 					type = "renderedFood";
@@ -19,7 +19,7 @@ const search = (receivedFood, receivedRestaurants) => {
 			// compare food items from server
 			if (!matchedElem) {
 				receivedFood.forEach(food => {
-					const foodName = food.name.match(/\w+/g).join(' ').toLowerCase();
+					const foodName = food.name.match(/[a-z]/gi).join('').toLowerCase();
 					if (foodName === inputValue) {
 						matchedElem = `#food-item-${food.id}`;
 						type = "receivedFood";
@@ -29,7 +29,7 @@ const search = (receivedFood, receivedRestaurants) => {
 			// compare restaurants from server
 			if (!matchedElem) {
 				receivedRestaurants.forEach(restaurant => {
-					const itemName = restaurant.location.match(/\w+/g).join(' ').toLowerCase();
+					const itemName = restaurant.location.match(/[a-z]/gi).join('').toLowerCase();
 					if (itemName === inputValue) {
 						matchedElem = restaurant.location;
 						type = "restaurant";

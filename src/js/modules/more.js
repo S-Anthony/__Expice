@@ -38,6 +38,7 @@ const more = (receivedFood) => {
 	}
 
 	function showItems (btn, container) {
+		renderElements(receivedFood, elemsContainer);
 		btn.classList.add('food__more_opened');
 		container.classList.add('animate__animated', 'animate__fadeIn');
 		container.classList.add('food__items_opened');
@@ -45,8 +46,6 @@ const more = (receivedFood) => {
 			item.style.display = 'block';
 		})
 	}
-
-	renderElements(receivedFood, elemsContainer);
 
 	moreBtn.addEventListener('click', () => {
 		showItems(moreBtn, elemsContainer);
