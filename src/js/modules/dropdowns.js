@@ -1,17 +1,22 @@
 const dropdowns = () => {
-	const bindDropdown = (triggerSelector, dropdownClass, activeClass, dropdownsForClosing) => {
+	const bindDropdown = (triggerSelector, dropdownClass, activeClass) => {
+		const allDropdowns = document.querySelectorAll('.booking__params-dropdown');
 		const dropdown = document.querySelector(dropdownClass);
 
 		function showDropdown (dropdown) {
+			allDropdowns.forEach(item => {
+				hideDropdown(item);
+			})
 			dropdown.classList.add(activeClass);
-			if (dropdownsForClosing) {
-				dropdownsForClosing.forEach(item => {
-					hideDropdown(document.querySelector(item));
-				})
-			}
+			document.querySelector(triggerSelector).classList.add('dropdown-active');
+			dropdown.addEventListener('mouseleave', () => {
+				hideDropdown(dropdown);
+			});
 		}
+
 		function hideDropdown (dropdown) {
 			dropdown.classList.remove(activeClass);
+			document.querySelector(triggerSelector).classList.remove('dropdown-active');
 		}
 
 		document.addEventListener('click', e => {
@@ -29,9 +34,9 @@ const dropdowns = () => {
 
 	bindDropdown('.header__user', '.header__user-list', 'header__user-list-active');
 	bindDropdown('.mobile-menu .header__user', '.mobile-menu .header__user .header__user-list', 'header__user-list-active');
-	bindDropdown('.booking__params-date', '.booking__params-date .booking__params-dropdown', 'active', ['.booking__params-time .booking__params-dropdown', '.booking__params-guests .booking__params-dropdown']);
-	bindDropdown('.booking__params-time', '.booking__params-time .booking__params-dropdown', 'active', ['.booking__params-date .booking__params-dropdown', '.booking__params-guests .booking__params-dropdown']);
-	bindDropdown('.booking__params-guests', '.booking__params-guests .booking__params-dropdown', 'active', ['.booking__params-time .booking__params-dropdown', '.booking__params-date .booking__params-dropdown']);
+	bindDropdown('.booking__params-date', '.booking__params-date .booking__params-dropdown', 'active');
+	bindDropdown('.booking__params-time', '.booking__params-time .booking__params-dropdown', 'active');
+	bindDropdown('.booking__params-guests', '.booking__params-guests .booking__params-dropdown', 'active');
 
 }
 

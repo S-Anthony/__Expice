@@ -152,7 +152,7 @@
 			}
 			position: relative;
 			cursor: pointer;
-			&:active {
+			&.dropdown-active, &:active {
 				z-index: 20;
 				.booking__params-title {
 					color: $main-green;
